@@ -1,76 +1,13 @@
-<h1 class="text-center">Twitter Sentiment Analysis</h1>
-
-<h3>Context</h3>
-
-<p class="lead">
-  This is the sentiment140 dataset.
-  It contains 1,600,000 tweets extracted using the twitter api . <br>
-  The tweets have been annotated (0 = negative, 2= neutre,  4 = positive)
-  and they can be used to detect sentiment .
-</p>
-
-<h3>Content</h3>
-
-<small class="text-muted lead">It contains the following 6 fields:</small>
-<ol class="lead">
-  <li>target: the polarity of the tweet (0 = negative, 2 = neutral, 4 = positive)</li>
-  <li>ids: The id of the tweet ( 2087)</li>
-  <li>date: the date of the tweet (Sat May 16 23:58:44 UTC 2009)</li>
-  <li>flag: The query (lyx). If there is no query, then this value is NO_QUERY.</li>
-  <li>user: the user that tweeted (robotickilldozr)</li>
-  <li>text: the text of the tweet (Lyx is cool)</li>
-</ol>
-
-<h3>Required work</h3>
-
-<p class="lead">
-  Keywords : <span class="text-primary"><a href="#text-cleaning">Text cleaning</a>, <a href="#word2vec">word2vec</a>, <a href="#tokenizer">tokenizer</a>, <a href="#stopwords">stopwords</a>, <a href="#stemmer">stemmer</a>, split, <a href="#nltk">nltk</a>, <a href="#LSTM">LSTM</a>, <br>
-    Dropout, MaxPooling, Conv, Train validation accuracy, train validation loss, <a href="prediction">prediction</a>, <br>
-    confusion matrix, accuracy, precision, recall, f1score</span>
-</p>
-<h2 class="text-center" id="text-cleaning">Text cleaning</h2>
-<p class="lead">
-  TEXT_CLEANING_RE = <span class="text-danger">"@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+"</span>
-  est une variable globale contenant une expression régulière ou rationnelle<br>
-  permettant de nettoyer les texts à analyser en retirant tout les hyperliens contenu dans le text .
-</p>
-
-<img class="img-fluid" src="../assets/dfhead5.png" alt="dataset">
-
-<p class="lead">Ceci est possible grace à la fonction <span class="text-success">preprocess</span> qui prend en paramètre le texte à analyser (text)
-  et un boolean (stem) pour prendre en considérartion ou non la racine de chaque mot. Voir la partie <a href="#stemmer">stemmer</a>
-</p>
-
-<img src="../assets/preprocess.png" alt="preprocess">
-
-<p class="lead">
-  C'est la ligne qui <span class="text-success">text = re.sub(TEXT_CLEANING_RE, ' ', str(text).lower()).strip()</span> qui nous intéresse pour le moment car c'est elle qui retire <br>
-  dans le texte. Nous reviendrons sur le reste du code notamment dans la partie <a href="#tokenizer">tokenizer</a>
-</p>
-
-<h2 class="text-center" id="stopwords">Stopwords</h2>
-<p class="lead">
-  Avant de passer à la partie tokenisation, nous allons nous intérresser ici au <span class="text-danger">stopwords</span> . On commence par utiliser la bibliothèque nltk
-  <br>de python pour télécharger le packge stopwords. Commme l'illustre la figure ci-dessous :
-</p>
-
-<img src="../assets/stopwords.png" alt="stopwords">
-
-<p class="lead">
-  D'après <a href="https://fr.wikipedia.org/wiki/Mot_vide">Wikipedia</a>, un mot vide (ou stop word, en anglais) est un mot qui est tellement commun qu'il est inutile de l'indexer ou de l'utiliser dans une recherche.
-  En français, des mots vides évidents pourraient être « le », « la », « de », « du », « ce »…
-  <br> un mot qui apparaît avec une fréquence semblable dans chacun des textes de la collection n'est pas discriminant
-  car il ne permet pas de distinguer les textes les uns par rapport aux autres.
-  <br>Revenons à notre fonction <span class="text-success">preprocess</span>
-</p>
-<img src="../assets/preprocess.png" alt="preprocess">
-<p class="lead">
-  Une boucle for permet de parcourir chaque mot des texts nettoyer à anlyser .
-  Si un mot appartient au stopwords il est ignoré, sinon il est rajouté à une liste de mots appellé tokens . Et ainsi de suite pour chaque text de notre dataframe
-</p>
-<h2 class="text-center" id="tokenizer">Tokenizer</h2>
-<p class="lead">
-
-</p>
-
-<h2 class="text-center" id="stemmer">Stemmer</h2>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">NLP</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a routerLink="/twit">Twit</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
